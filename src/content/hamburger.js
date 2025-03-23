@@ -53,7 +53,7 @@ const HamburgerMenu = () => {
             {/* Left Column */}
             <div className="menu-column">
               <p>
-                <a href="/">HOME</a>
+                <a href="/therailpark">HOME</a>
               </p>
               <p>
                 <a href="/visit">VISIT</a>
