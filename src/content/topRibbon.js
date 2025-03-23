@@ -30,10 +30,12 @@ const TopRibbon = () => {
         <Link to="visit">VISIT</Link>
       </div>
       <div className="logo">
-        <img src={logo} alt="Rail Park Logo" />
+        <Link to="/">
+          <img src={logo} alt="Rail Park Logo" />
+        </Link>
       </div>
       <div className="menu-item">
-        <a href="/">VISION</a>
+        <a href="#">VISION</a>
       </div>
       <div className="donate-container">
         <button className="donate">DONATE</button>

@@ -6,6 +6,7 @@ import {
 } from "../animations/hamburgerAnimations";
 import "./hamburger.css";
 import logo from "./logo192.png";
+import { Link } from "react-router-dom";
 
 const HamburgerMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -53,10 +54,10 @@ const HamburgerMenu = () => {
             {/* Left Column */}
             <div className="menu-column">
               <p>
-                <a href="/therailpark">HOME</a>
+                <Link to="/">HOME</Link>
               </p>
               <p>
-                <a href="/visit">VISIT</a>
+                <Link to="visit">VISIT</Link>
               </p>
               <p>RESOURCES</p>
               <p>NEWS</p>
@@ -68,7 +69,7 @@ const HamburgerMenu = () => {
             {/* Middle Column - Visit Section */}
             <div className="menu-column">
               <h4>
-                <a href="/visit">VISIT</a>
+                <Link to="visit">VISIT</Link>
               </h4>
               <p className="bold-text">LOCATION</p>
               <p className="bold-text">MAP</p>
