@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
+import { Link } from "react-router-dom";
 import "./topRibbon.css";
 import logo from "./logo192.png";
 import HamburgerMenu from "./hamburger";
@@ -26,7 +27,7 @@ const TopRibbon = () => {
     <div className={`ribbon ${hidden ? "hide" : ""}`}>
       <HamburgerMenu menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
       <div className="menu-item">
-        <a href="/visit">VISIT</a>
+        <Link to="visit">VISIT</Link>
       </div>
       <div className="logo">
         <img src={logo} alt="Rail Park Logo" />
