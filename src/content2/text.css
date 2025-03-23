@@ -1,0 +1,45 @@
+.txt {
+    margin-top: 6vw;
+    font-family: 'CustomFont1',sans-serif;
+    font-size: 5vw;
+    text-align: left;
+    line-height: 1.1;
+    margin-left: 10vw;
+    opacity: 0; /* Start with invisible text */
+    transform: translate(-1rem,-2rem); /* Move text down slightly */
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out; /* Smooth transition */
+}
+.txt span{
+    color:#04C75C;
+}
+.txt p{
+    margin-top: -1vw;
+    font-family: 'CustomFont2',sans-serif;
+    font-size: 2vw;
+}
+
+  
+  .txt.fade-in {
+    opacity: 1; /* Fade in */
+    transform: translate(0,0); /* Move text to its original position */
+  }
+  @media(max-width:1380px){
+    .txt{
+      margin: 5vw 3vw;
+      font-size: 6.5vw;
+    }
+    .txt p{
+      font-size: 3vw;
+    }
+
+  }
+  @media(max-width:800px){
+    .txt{
+      margin:10vw 3vw;
+      margin-bottom: 20vw;
+      font-size: 8vw;
+    }
+    .txt p{
+      font-size: 4vw;
+    }
+  }

@@ -1,0 +1,308 @@
+
+
+
+/* Hamburger Icon */
+.hamburger-icon {
+    position: relative;
+    
+    width: 40px;
+    height: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.bar {
+    width: 40px;
+    height: 2.5px;
+    background-color: black;
+    transition:  transform 0.4s, opacity 0.4s;
+}
+/* Hover Effect: Turns Green */
+.hamburger-icon:hover .bar {
+    background-color: #0CEE72; /* Green */
+}
+
+/* Transform into "X" when menu opens */
+.hamburger-icon.open .bar:nth-child(1) {
+    transform: translateY(8.5px) rotate(45deg);
+    background-color:white;
+}
+
+.hamburger-icon.open .bar:nth-child(2) {
+    transform: translateY(-8.5px) rotate(-45deg);
+    background-color:white;
+    
+}
+.hamburger-icon.open:hover .bar{
+    background-color: #0CEE72;
+}
+
+/* Fullscreen Menu */
+.menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: white;
+    background: black;
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    overflow-y: auto;
+    overflow-x: hidden;
+    overscroll-behavior: contain;
+    
+}
+
+
+.sticky{
+    width:100vw;
+    background-color: black;
+    top:0;
+    z-index: 1001;
+    position:sticky;
+    border-bottom:1px solid rgba(255, 255, 255, 0.356) ;
+}
+
+/* Top Section */
+.menu-header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.356);
+    width: 87.5%;
+    padding: 1.75vw 0vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index:1000;
+}
+
+.search-bar {
+    margin-left: 30vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.search-bar input {
+    border: none;
+    color:white;
+    background-color: black;
+    outline: none;
+    font-weight: 100;
+    font-size: 30px;
+}
+.search-bar svg {
+   font-weight: 100;
+    font-size: 35px; /* Increase size */
+}
+
+
+.menu-content a{
+    color:white;
+    text-decoration: none;
+}
+.menu-content a:hover{
+    color: #0CEE72;
+}
+/* Menu Content */
+.menu-content {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    
+    margin-top: 40px;
+}
+.menu-column p.bold-text{
+    font-family:'CustomFont3',serif;
+    font-size:6vw;
+    margin: -10px 0;
+    font-weight: 500;
+}
+.menu-column p.bold-text:hover{
+    color:#0CEE72;
+    transform:translateX(10px);
+    transition: transform 0.3s;
+    cursor: pointer;
+}
+.menu-column {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 15px;
+    font-size: 18px;
+}
+.menu-column p:hover{
+    color: #0CEE72;
+    cursor: pointer;
+}
+.menu-column p,.menu-column h4{
+    font-family: 'CustomFont2',sans-serif;
+    font-weight: bold;
+    margin: 10px 0;
+}
+/* Footer */
+.menu-footer {
+    width: 90%;
+    max-width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    margin-top: auto;
+    font-size: 14px;
+}
+.donate-btn{
+    color:white;
+    padding: 10px 30px;
+    border: 1px solid black;
+    font-family: 'CustomFont2',sans-serif;
+    font-size:large;
+    letter-spacing: 1.3px;
+    border-radius: 50px;
+    background: #0CEE72;
+    cursor: pointer;
+}
+.menu-info{
+    margin-top:-1%;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+}
+.menu-info p{
+    font-family: 'CustomFont2',sans-serif;
+    font-size: 2vw;
+    margin: 0 0;
+    font-weight:lighter;
+}
+.social-icons svg{
+    font-size:40px;
+    padding-right: 20px;
+    transition: color 0.3s;
+}
+.social-icons svg:hover {
+    color: #e4408a; /* Instagram pink */
+    cursor: pointer;
+}
+
+.social-icons svg:nth-child(2):hover {
+    color: #1DA1F2; /* Twitter blue */
+    cursor: pointer;
+}
+
+.social-icons svg:nth-child(3):hover {
+    color: #1877F2; /* Facebook blue */
+    cursor: pointer;
+}
+/* Text Fade-in from Left */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translate(-10px,-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translate(0,0);
+    }
+}
+
+/* Apply Animation to Each Column */
+.menu-column {
+    opacity: 0;  /* Initially Hidden */
+    animation: slideIn 0.3s ease-in-out forwards;
+}
+.logo1{
+    display: none;
+}
+/* Delays for Each Column */
+.menu-column:nth-child(1) {
+    animation-delay: 0.1s;
+}
+.menu-column:nth-child(2) {
+    animation-delay: 0.2s;
+}
+.menu-column:nth-child(3) {
+    animation-delay: 0.3s;
+}
+.menu-info {
+    opacity:0;
+    animation: slideIn 0.3s ease-in-out forwards;
+    animation-delay: 0.4s;
+}
+
+
+@media(max-width:1000px){
+    .donate-btn{
+       transform: translateX(-10vw);
+    }
+    .hamburger-icon{
+        transform: translateX(-6vw);
+    }
+    .menu-info{
+        display: none;
+    }
+    .menu-column p.bold-text{
+        font-size: 8vw;
+    }
+    .menu-content{
+        margin-left: -5vw;
+        width: 90%;
+    }
+}
+@media (max-width:780px) {
+    .donate-btn{
+       display: none;
+    }
+    .logo1{
+        transform: translateX(-10vw);
+        display: flex;
+        height: 50px;
+        width: 50px;
+    }
+    .menu-content{
+        margin-left: 0;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+    .menu-column:nth-child(1) p{
+        width:100%;
+        text-align: center;
+        font-family: 'CustomFont3',sans-serif;
+        font-size: 15vw;
+        font-weight: 500;
+        letter-spacing: -0.1rem;
+        line-height: 0.7;
+    }
+    .menu-column:nth-child(2){
+        margin-top: 5vw;
+        width: 100%;
+    }
+    .menu-column:nth-child(2) p.bold-text,.menu-column:nth-child(2) h4{
+        width: 100%;
+        text-align: center;
+        font-family: 'CustomFont2',sans-serif;
+        font-size: 4vw;
+    }
+    .menu-column:nth-child(3){
+        display: none;
+    }
+}
+@media(max-width:600px){
+    .menu-footer{
+        display: flex;
+        flex-direction: column;
+    }
+    .logo1{
+        transform: translateX(-20vw);
+    }
+}
+@media (max-width:500px) {
+    .logo1{
+        transform: translateX(-40vw);
+    }
+}

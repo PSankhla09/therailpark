@@ -1,0 +1,129 @@
+.transport-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+    padding: 50px;
+    position: relative;
+    margin: 10vw 7vw;
+}
+.transport-left{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: flex-start;
+    text-align: left;
+}
+.arrow1{
+    width:100%;
+    display: flex;
+    justify-content: center;
+}
+.arrow1 svg{
+    width:20px;
+}
+
+.transport-image-container {
+    width:38%;
+    height: 82vh;
+    position: relative;
+}
+
+/* Stacking Images for Continuous Animation */
+.image-active {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 5px;
+    z-index: 1;
+    opacity: 0;
+    animation: slideIn2 0.4s ease-out forwards;
+}
+
+/* Animation Keyframes */
+@keyframes slideIn2 {
+    from {
+        transform: translate(100px, -50px) rotate(5deg);
+        opacity: 0.5;
+    }
+    to {
+        transform: translate(0, 0) rotate(0);
+        opacity: 1;
+    }
+}
+
+.transport-list {
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    width: 50%;
+}
+
+.transport-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 0;
+    cursor: pointer;
+    transition: color 0.3s ease-in-out;
+    border-bottom: 1px solid var(--stroke-color);
+}
+
+
+.transport-item:hover .transport-details,
+.transport-item:hover .transport-subdetails {
+    color: #04C75C;
+}
+
+.transport-mode {
+    font-size: 2.5rem;
+    
+}
+
+.transport-right{
+    width: 100%;
+    display: flex;
+    text-align: left;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.transport-details {
+    font-size: 2rem;
+    font-weight: normal;
+    
+}
+
+.transport-subdetails {
+    
+    font-size: 1.5rem;
+    color: gray;
+}
+
+.highlight-text {
+    color: green;
+    font-weight: bold;
+}
+
+.arrow1-icon {
+    transition: transform 0.3s ease-in-out, stroke 0.3s ease-in-out;
+    stroke: var(--stroke-color);
+    transform: rotate(90deg);
+}
+
+.transport-item:hover .arrow1-icon {
+    transform: translateX(5px) rotate(90deg);
+    stroke: green;
+}
+@media (max-width:1024px) {
+    .transport-image-container{
+        display: none;
+    }
+    .transport-list{
+        width: 100%;
+    }
+}

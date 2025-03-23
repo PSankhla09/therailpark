@@ -1,0 +1,47 @@
+.parallax {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+  
+  .content {
+    z-index: 1;
+    text-align: center;
+    color: white;
+    font-size: 2rem;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+  }
+  
+  .background-image,
+  .background-video {
+    position: relative;
+    width: 32vw;
+    height: 18vw;
+    object-fit: cover; /* Ensure the video/image covers the whole container */
+    transition: opacity 0.3s ease-in-out;
+    opacity: 1;
+    border-radius: 5px;
+  }
+  
+  .background-video {
+    object-fit: cover;
+    z-index: 1;
+  }
+  
+  .background-image {
+    z-index: 0; /* Ensure the image is behind content when it's visible */
+  }
+  @media(max-width:1250px){
+    .background-image,.background-video{
+      width:43vw;
+      height:26vw;
+    }
+  }
+  @media(max-width:980px){
+    .background-image,.background-video{
+      width:92vw;
+      height:55vw;
+    }
+  }

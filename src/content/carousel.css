@@ -1,0 +1,197 @@
+/* General Styling */
+.c {
+    top: 2.5vw;
+    position: relative;
+    width: 100%;
+    height: auto;
+    background: white;
+    overflow: hidden;
+}
+
+.carousel-container {
+    touch-action: pan-y; /* Prevent scroll conflicts while allowing vertical scrolling */
+    cursor: pointer;
+    flex-wrap: wrap;
+    display: flex;
+    position: relative;
+    user-select: none; /* Disable text/image selection */
+}
+
+.carousel-container:active {
+    cursor: pointer;
+}
+
+
+.carousel-content {
+    width: 25vw;
+    margin-left: 10vw;
+}
+
+.carousel-content button {
+    transform: translateY(-10vw);
+    position: absolute;
+}
+
+.title {
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100%;
+    margin-left: 5.5vw;
+    align-items: flex-start;
+}
+
+.title h1 {
+    width: 35vw;
+    font-size: 8rem;
+    font-weight: bold;
+    text-align: left;
+    letter-spacing: -0.35rem;
+    font-family: 'CustomFont1', sans-serif;
+    line-height: 1;
+}
+
+.slide-text {
+    font-family: 'CustomFont2', sans-serif;
+    margin-top: -2vw;
+    font-size: 3vw;
+    text-align: left;
+    opacity: 0;
+    transform: translateY(80px);
+    transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+}
+
+.fade-transition {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.carousel-image-container {
+    flex: 1;
+    margin-top: -5vw;
+    margin-right: 15vw;
+    width: 60vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.carousel-image {
+    width: 50vw;
+    height: 40vw;
+    object-fit: cover;
+    position: absolute;
+    opacity: 1;
+    transform: scale(1) translate(0, 0) rotate(0deg);
+    transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+    -webkit-user-drag: none; /* Disable drag behavior for WebKit-based browsers */
+    user-select: none;
+}
+
+
+/* Animation for outgoing slide */
+.carousel-image.outgoing {
+    opacity: 0;
+    transform: scale(0.9) translate(-250px, 200px) rotate(-15deg);
+}
+
+/* Animation for incoming slide */
+.carousel-image.incoming {
+    opacity: 0;
+    transform: scale(0.9) translate(-250px, 200px) rotate(15deg);
+}
+
+.carousel-image.incoming.active {
+    opacity: 1;
+    transform: scale(1) translate(0, 0) rotate(0deg);
+}
+
+/* Navigation Buttons */
+.prev-btn,
+.next-btn {
+    position: absolute;
+    top: 50%;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.prev-btn { left: 10px; }
+.next-btn { right: 10px; }
+.swipe-callout{
+    display: none;
+}
+/* Media Queries for Responsive Behavior */
+@media (max-width: 1260px) {
+    .title h1 {
+        font-size: 7rem;
+    }
+    .carousel-image {
+        width: 45vw;
+        height: 60vh;
+    }
+}
+
+@media (max-width: 1111px) {
+    .title h1 {
+        font-size: 5.3rem;
+    }
+}
+
+/* 🔹 SWIPE MODE STYLES (Mobile View) 🔹 */
+@media (max-width: 780px) {
+    .title {
+        margin-left: 2vw;
+    }
+    
+    .title h1 {
+        width: 60vw;
+        margin-top: 15vw;
+        font-size: 4.5rem;
+    }
+
+    .carousel-content {
+        display: none;
+    }
+    .carousel-container {
+        transform: translateY(40vh);
+        height: 55vh;
+    }
+
+    .carousel-image-container {
+        width: 100%;
+        margin: 0 0vw;
+        height: 35vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .carousel-image {
+        width: 95%;
+        height: 100vh;
+        transition: transform 0.5s ease-in-out;
+    }
+
+    /* Remove buttons in swipe mode */
+    .prev-btn, .next-btn {
+        display: none;
+    }
+    
+    
+}
+@media(max-width:550px){
+    .carousel-container{
+        margin-top: -20vh;
+        margin-bottom: 15vh;
+        width:100vw;
+        height:70vh;
+    }
+    .carousel-image{
+        width:90%;
+        height:70vh;
+        margin-right: 2vw;
+    }
+}

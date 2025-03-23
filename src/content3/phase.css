@@ -1,0 +1,19 @@
+.phase{
+    margin: 0 7vw;
+    padding-top:5vw;
+    font-family: 'CustomFont3',sans-serif;
+    color:#04C75C;
+    text-transform: uppercase;
+    font-size:8vw;
+    line-height: 0.75;
+    margin-bottom: -5vw;
+}
+.phase h1{
+    letter-spacing: -0.3rem;
+    font-weight: 400;
+}
+@media (max-width:1024px) {
+    .phase h1{
+        letter-spacing: 0;
+    }
+}
