@@ -1,0 +1,40 @@
+{
+  "files": {
+    "main.css": "/therailpark/static/css/main.f9ce3a27.css",
+    "main.js": "/therailpark/static/js/main.00eff490.js",
+    "static/js/453.bb69927e.chunk.js": "/therailpark/static/js/453.bb69927e.chunk.js",
+    "static/media/homepage-viaduct.mp4": "/therailpark/static/media/homepage-viaduct.c500414639ab7b06c150.mp4",
+    "static/media/homepage-cut.mp4": "/therailpark/static/media/homepage-cut.10b6e97b03211d9b66a8.mp4",
+    "static/media/homepage-tunnel.mp4": "/therailpark/static/media/homepage-tunnel.8e3eeeb80108bf19eeba.mp4",
+    "static/media/noble-st-entrance.mp4": "/therailpark/static/media/noble-st-entrance.1c3e4ce719e696d4e45e.mp4",
+    "static/media/callowhill-st-entrance.mp4": "/therailpark/static/media/callowhill-st-entrance.fe22c7d533a47ed6ede0.mp4",
+    "static/media/coin.mp4": "/therailpark/static/media/coin.155288ee7d4bbd60b762.mp4",
+    "static/media/28507bd7-e937-4074-87b0-95751194f4c1_noble-entrance.avif": "/therailpark/static/media/28507bd7-e937-4074-87b0-95751194f4c1_noble-entrance.3ddb335e3bd7dddf92c1.avif",
+    "static/media/ca831225-3552-40ec-9f6f-bb576af3eb65_callowhill-entrance.avif": "/therailpark/static/media/ca831225-3552-40ec-9f6f-bb576af3eb65_callowhill-entrance.832492ce426cf5d6ae9c.avif",
+    "static/media/bike.avif": "/therailpark/static/media/bike.69c9974ff961417434d1.avif",
+    "static/media/0f55920f-6808-48d2-a89a-b99a5ca72ca0_the-cut.avif": "/therailpark/static/media/0f55920f-6808-48d2-a89a-b99a5ca72ca0_the-cut.b67b50466d603b28ceb4.avif",
+    "static/media/parking.avif": "/therailpark/static/media/parking.cdcab52d39047c81800a.avif",
+    "static/media/bus.avif": "/therailpark/static/media/bus.108233a4cd75948d5d20.avif",
+    "static/media/b75ee5d3-664e-44d8-975a-b739140bf61d_landing-page-header-phase-1.avif": "/therailpark/static/media/b75ee5d3-664e-44d8-975a-b739140bf61d_landing-page-header-phase-1.2b736c93230415626b01.avif",
+    "static/media/subway.avif": "/therailpark/static/media/subway.20f2d7ba5285b93589e2.avif",
+    "static/media/e9874d84-0be0-4864-80de-dfeab4d76be7_the-viaduct.avif": "/therailpark/static/media/e9874d84-0be0-4864-80de-dfeab4d76be7_the-viaduct.0cd8c08da51ced3b8439.avif",
+    "static/media/ebcfced6-c746-43c0-91b8-ba8b64835cea_the-tunnel.avif": "/therailpark/static/media/ebcfced6-c746-43c0-91b8-ba8b64835cea_the-tunnel.a59225d9b9a8123c24a7.avif",
+    "static/media/day-image.avif": "/therailpark/static/media/day-image.4f3f99451f5e15cfdd73.avif",
+    "static/media/d7009ba0-a9fb-4192-96c3-da520075023d_the-cut.avif": "/therailpark/static/media/d7009ba0-a9fb-4192-96c3-da520075023d_the-cut.3232d96aa84bf9935626.avif",
+    "static/media/Z37Z15bqstJ99MR4_FRP-June2024VolunteerCleanUp-Epison-14.jpeg": "/therailpark/static/media/Z37Z15bqstJ99MR4_FRP-June2024VolunteerCleanUp-Epison-14.66f5fa177a7074fc51ae.jpeg",
+    "static/media/night-image.avif": "/therailpark/static/media/night-image.1211408ed1351131fade.avif",
+    "static/media/font-woff2": "/therailpark/static/media/font-df3bd80a11dac934e639394e4bc72b95.df3bd80a11dac934e639.woff2",
+    "static/media/Z37aCZbqstJ99MSB_FRP-May2024VolunteerPlanting-Epison-07.jpeg": "/therailpark/static/media/Z37aCZbqstJ99MSB_FRP-May2024VolunteerPlanting-Epison-07.951d60c5d3854698b47b.jpeg",
+    "static/media/Z37HHpbqstJ99MC8_CopyofRPTours_Text+iconographyborder.png": "/therailpark/static/media/Z37HHpbqstJ99MC8_CopyofRPTours_Text+iconographyborder.24e5d2475a3e9d85de6e.png",
+    "static/media/Z8ciGBsAHJWomGpy_CopyofMfPS_Heading+graphic+iconography-2-.png": "/therailpark/static/media/Z8ciGBsAHJWomGpy_CopyofMfPS_Heading+graphic+iconography-2-.e0e3e8e9fde2e7a710af.png",
+    "static/media/logo192.png": "/therailpark/static/media/logo192.28b6bb2cb99da54698b5.png",
+    "index.html": "/therailpark/index.html",
+    "main.f9ce3a27.css.map": "/therailpark/static/css/main.f9ce3a27.css.map",
+    "main.00eff490.js.map": "/therailpark/static/js/main.00eff490.js.map",
+    "453.bb69927e.chunk.js.map": "/therailpark/static/js/453.bb69927e.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f9ce3a27.css",
+    "static/js/main.00eff490.js"
+  ]
+}
