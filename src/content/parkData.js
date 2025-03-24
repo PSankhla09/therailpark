@@ -8,26 +8,27 @@ import video2 from "./callowhill-st-entrance.mp4";
 import video3 from "./homepage-viaduct.mp4";
 import video4 from "./homepage-cut.mp4";
 import video5 from "./homepage-tunnel.mp4";
+
 const parkData = [
   {
-    imageUrl: image1, // Path to the image for Noble St Entrance
-    videoUrl: video1, // Path to the video for Noble St Entrance
+    imageUrl: image1,
+    videoUrl: video1,
   },
   {
-    imageUrl: image2, // Path to the image for Callowhill St Entrance
-    videoUrl: video2, // Path to the video for Callowhill St Entrance
+    imageUrl: image2,
+    videoUrl: video2,
   },
   {
-    imageUrl: image3, // Path to the image for Section 3
-    videoUrl: video3, // Path to the video for Section 3
+    imageUrl: image3,
+    videoUrl: video3,
   },
   {
-    imageUrl: image4, // Path to the image for Section 4
-    videoUrl: video4, // Path to the video for Section 4
+    imageUrl: image4,
+    videoUrl: video4,
   },
   {
-    imageUrl: image5, // Path to the image for Section 5
-    videoUrl: video5, // Path to the video for Section 5
+    imageUrl: image5,
+    videoUrl: video5,
   },
 ];
 

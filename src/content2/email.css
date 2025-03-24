@@ -1,69 +1,67 @@
 .email-container {
-    background-color: #0CEE72;
-    text-align: center;
-    padding: 5vw 0;
-    padding-bottom: 7vw;
-    transition: opacity 0.3s ease-in-out;
-  }
-  
-  .email-info,
-  .email-input-wrapper {
-    display: block;
-    font-size: 1.5rem;
-  }
-  
-  .email-input-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-  }
-  
-  .email-input {
-    font-family: 'CustomFont2',sans-serif;
-    font-size: 2rem;
-    border: none;
-    background: transparent;
-    border-bottom: 1px solid black;
-    outline: none;
-    padding: 5px;
-    width: 50vw;
-    text-align: left;
-  }
-  
-  .email-submit {
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    transition: transform 0.2s ease-in-out;
-  }
-  
-  .email-submit:hover {
-    transform: translateX(5px);
-  }
-  
-  .email-submit svg {
-    width: 30px;
-    height: 30px;
-    stroke: black;
-  }
-  
-  .email-error {
-    display: none;
-    color: black;
-    font-size: 1.5rem;
-    margin-top: 15px;
-  }
-  
-  /* Hide input and button when email is invalid */
-  .email-container.invalid .email-info,
-  .email-container.invalid .email-input-wrapper {
-    display: none;
-  }
-  
-  /* Show only the error message */
-  .email-container.invalid .email-error {
-    display: block;
-  }
-  
-  
+  background-color: #0CEE72;
+  text-align: center;
+  padding: 5vw 0;
+  padding-bottom: 7vw;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.email-info,
+.email-input-wrapper {
+  display: block;
+  font-size: 1.5rem;
+}
+
+.email-input-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.email-input {
+  font-family: 'CustomFont2', sans-serif;
+  font-size: 2rem;
+  border: none;
+  background: transparent;
+  border-bottom: 1px solid black;
+  outline: none;
+  padding: 5px;
+  width: 50vw;
+  text-align: left;
+}
+
+.email-submit {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+.email-submit:hover {
+  transform: translateX(5px);
+}
+
+.email-submit svg {
+  width: 30px;
+  height: 30px;
+  stroke: black;
+}
+
+.email-error {
+  display: none;
+  color: black;
+  font-size: 1.5rem;
+  margin-top: 15px;
+}
+
+
+.email-container.invalid .email-info,
+.email-container.invalid .email-input-wrapper {
+  display: none;
+}
+
+
+.email-container.invalid .email-error {
+  display: block;
+}

@@ -1,6 +1,6 @@
 import React from "react";
 import "./footer.css";
-import coinVideo from "./coin.mp4"; // Ensure the video file is in the correct path
+import coinVideo from "./coin.mp4";
 import { FaInstagram, FaTwitter, FaFacebook } from "react-icons/fa";
 
 const Footer = () => {

@@ -6,7 +6,6 @@ import Parallax from "../animations/Parallax";
 
 import { useLocation } from "react-router-dom";
 
-// Reusable Arrow Component
 const Arrow = ({ inverted = false }) => (
   <span className={`arrow ${inverted ? "inverted" : ""}`}>
     <svg

@@ -30,7 +30,6 @@
     position: relative;
 }
 
-/* Stacking Images for Continuous Animation */
 .image-active {
     width: 100%;
     height: 100%;
@@ -44,7 +43,6 @@
     animation: slideIn2 0.4s ease-out forwards;
 }
 
-/* Animation Keyframes */
 @keyframes slideIn2 {
     from {
         transform: translate(100px, -50px) rotate(5deg);

@@ -60,7 +60,7 @@
   }
   .logo img {
     
-    height: 50px; /* Adjust size if needed */
+    height: 50px; 
     filter: grayscale(100%) brightness(0); /* Make logo black */
     transition: filter 0.3s ease-in-out;
   }

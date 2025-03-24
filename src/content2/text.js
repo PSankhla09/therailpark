@@ -1,11 +1,10 @@
 import React from "react";
-import useIntersectionObserver from "../animations/useIntersectionObserver"; // Import the custom hook
+import useIntersectionObserver from "../animations/useIntersectionObserver";
 import "./text.css";
 
 const Text = () => {
-  // Use the Intersection Observer hook
   const [ref, isVisible] = useIntersectionObserver({
-    threshold: 0.3, // Trigger when 30% of the element is visible
+    threshold: 0.3,
   });
 
   return (

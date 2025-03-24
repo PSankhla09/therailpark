@@ -7,7 +7,7 @@ import HamburgerMenu from "./hamburger";
 const TopRibbon = () => {
   const [hidden, setHidden] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const lastScrollY = useRef(0); // Stores last scroll position
+  const lastScrollY = useRef(0);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -16,7 +16,7 @@ const TopRibbon = () => {
       } else {
         setHidden(false);
       }
-      lastScrollY.current = window.scrollY; // Update last scroll position
+      lastScrollY.current = window.scrollY;
     };
 
     window.addEventListener("scroll", handleScroll);

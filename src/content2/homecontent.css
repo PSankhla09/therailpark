@@ -4,13 +4,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: column; /* Stack elements vertically */
-    width: 100%; /* Ensure full width */
+    flex-direction: column;
+    width: 100%;
   }
   
   .sections {
-    width: 80vw; /* Consistent width for all sections */
-    margin: 0vw 0; /* Add vertical spacing between sections */
+    width: 80vw; 
+    margin: 0vw 0; 
     position: relative;
   }
   .section-1{
@@ -74,8 +74,8 @@
     display: flex;
     transform: translate(-20vw,-1vw);
     font-size: 2rem;
-    width: 38vw; /* Match the width of other sections */
-    margin: 5vw 0; /* Add vertical spacing */
+    width: 38vw; 
+    margin: 5vw 0; 
     text-align: left;
   }
   .meow a{

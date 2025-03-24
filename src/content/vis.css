@@ -14,12 +14,8 @@
   font-size: 5rem;
   font-weight: bolder;
   opacity: 0;
-  /* Start with invisible text */
   transform: translateX(-3rem);
-  /* Move text down slightly */
   transition: opacity 0.5s ease-out, transform 0.5s ease-in-out;
-  /* Smooth transition */
-
 }
 
 .d {
@@ -38,7 +34,6 @@
   overflow: hidden;
   border-radius: 8px;
 }
-
 
 .text-container {
   flex: 1;
@@ -67,48 +62,32 @@
 }
 
 .arrow {
-
   font-weight: 100;
   position: relative;
   transform: translateY(-50%);
   transition: transform 0.8s ease, color 0.8s ease;
-  /* Smooth transitions */
 }
 
 .arrow svg {
   width: 70px;
-  /* Adjust size as needed */
   height: 70px;
   color: var(--stroke-color);
-  /* Default arrow color */
 }
 
-/* Invert the first arrow */
 .arrow.inverted svg {
   transform: scaleX(-1);
-  /* Flip horizontally */
 }
 
-/* Arrow hover effect */
 .section:hover .arrow svg {
   transform: translateX(10px) scaleX(var(--scale, 1));
-  /* Move arrow to the right */
   color: #04C75C;
-  /* Change arrow color to green */
-
   transition: transform 0.3s ease, color 0.3s ease;
-  /* Smooth transitions */
 }
 
-/* Ensure the inverted arrow flips correctly on hover */
 .section:hover .arrow.inverted svg {
   transform: translateX(-10px) scaleX(-1);
-  /* Move left arrow forward */
   color: #04C75C;
-  /* Change arrow color to green */
-
   transition: transform 0.3s ease, color 0.3s ease;
-  /* Smooth transitions */
 }
 
 .text-container:nth-child(1) {
@@ -141,7 +120,6 @@
   margin-left: 7vw;
 }
 
-/* Button styles */
 .ada-button {
   background: none;
   border: none;
@@ -155,18 +133,14 @@
 
 .ada-button svg {
   width: 68px;
-  /* Adjust size as needed */
   height: 68px;
   fill: currentColor;
-  /* Use the button's text color */
 }
 
 .ada-button:hover {
   color: #04C75C;
-  /* Turn green on hover */
 }
 
-/* Tooltip styles */
 .ada-tooltip {
   visibility: hidden;
   opacity: 0;
@@ -182,13 +156,10 @@
   font-family: 'CustomFont2', sans-serif;
   font-size: 1.3rem;
   bottom: 125%;
-  /* Position above the button */
   left: 0;
   transform: translate(25%, 50%);
-  /* Center the tooltip horizontally */
   transition: opacity 0.3s ease, visibility 0.3s ease;
   white-space: wrap;
-  /* Allow text to wrap */
 }
 
 .ada-tooltip::before {
@@ -220,12 +191,9 @@
   transform: translate(0.2rem, -0.2rem);
 }
 
-
 .titl h1.fade-in {
   opacity: 1;
-  /* Fade in */
   transform: translateX(0);
-  /* Move text to its original position */
 }
 
 @media(max-width:1250px) {
@@ -233,36 +201,28 @@
     font-size: 6vw;
     width: 30vw;
   }
-
   .visit-container {
     margin: 0 3vw;
   }
-
   .text-container {
     margin-left: 0vw;
   }
-
   .text-container button {
     transform: translate(25vw, -7vw);
   }
-
   .text-container:nth-child(1) button {
     transform: translate(30vw, -7vw);
   }
-
   .text-container:nth-child(1) {
     margin-left: 0vw;
   }
-
   .ada-button svg {
     width: 50px;
     height: 50px;
   }
-
   .ada-tooltip {
     transform: translate(-23vw, 3vw);
   }
-
   .ada-tooltip::before {
     transform: translate(22.2vw, 0vw);
     border-width: 0.8rem 0rem 0rem 0.8rem;
@@ -275,64 +235,48 @@
     width: 90vw;
     display: inline;
   }
-
   .section {
     display: inline;
   }
-
   .titl h1 {
     margin-left: 32vw;
     width: 30vw;
     text-align: center;
     margin-bottom: 10vw;
   }
-
   .section .arrow svg path {
     transform: rotate(-90deg);
-    /* Rotate */
     transform-origin: center;
-    /* Rotate around center */
     transition: transform 0.8s ease;
-    /* Smooth transitions */
   }
-
   .section:hover .arrow svg {
     transform: translateY(-10px) scale(1.1);
-    /* Moves up and enlarges slightly */
   }
-
   .section:hover .arrow.inverted svg {
     transform: translateY(-10px) scale(1.1);
   }
-
   .section {
     display: flex;
     flex-direction: column;
-    /* Stack items vertically */
   }
-
   .section:nth-child(2) .parallax-media {
     order: 1;
-    /* Ensure the second image comes first */
   }
-
   .section:nth-child(2) .text-container {
     order: 2;
-    /* Ensure text-container comes after the image */
   }
- .ada-button svg{
-  transform: translateX(50vw);
- }
- 
- .ada-tooltip{
-  transform: translate(28vw,2vw);
- }
- .ada-tooltip{
-  font-size: 0.9rem;
- }
- .ada-tooltip::before {
-  transform: translate(23vw, 0vw);
-  border-width: 0.8rem 0rem 0rem 0.8rem;
-  border-color: transparent transparent transparent #04C75C;
-}
+  .ada-button svg{
+    transform: translateX(50vw);
+  }
+  .ada-tooltip{
+    transform: translate(28vw,2vw);
+  }
+  .ada-tooltip{
+    font-size: 0.9rem;
+  }
+  .ada-tooltip::before {
+    transform: translate(23vw, 0vw);
+    border-width: 0.8rem 0rem 0rem 0.8rem;
+    border-color: transparent transparent transparent #04C75C;
+  }
 }

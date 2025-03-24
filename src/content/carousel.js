@@ -15,27 +15,24 @@ export default function Carousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [previousIndex, setPreviousIndex] = useState(0);
   const [transitioning, setTransitioning] = useState(false);
-  const [initialAnimation, setInitialAnimation] = useState(true); // Added for initial animation
+  const [initialAnimation, setInitialAnimation] = useState(true);
   const carouselRef = useRef(null);
 
-  // Handle the initial image animation
   useEffect(() => {
     if (initialAnimation) {
       const timeout = setTimeout(() => {
-        setInitialAnimation(false); // End the initial animation
-      }, 800); // Match CSS animation duration (0.8s)
+        setInitialAnimation(false);
+      }, 800);
       return () => clearTimeout(timeout);
     }
   }, [initialAnimation]);
 
-  // Reset transitioning after animation
   useEffect(() => {
     if (transitioning) {
       const timeout = setTimeout(() => {
-        setTransitioning(false); // End transition after animation
-      }, 800); // Match CSS animation duration (0.8s)
-
-      return () => clearTimeout(timeout); // Clean up timeout
+        setTransitioning(false);
+      }, 800);
+      return () => clearTimeout(timeout);
     }
   }, [transitioning]);
 
@@ -47,61 +44,49 @@ export default function Carousel() {
 
   const nextSlide = () => {
     if (!transitioning) {
-      setTransitioning(true); // Start transition
-      setPreviousIndex(currentIndex); // Current becomes previous
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length); // Move to next
+      setTransitioning(true);
+      setPreviousIndex(currentIndex);
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length);
     }
   };
 
   const prevSlide = () => {
     if (!transitioning) {
-      setTransitioning(true); // Start transition
-      setPreviousIndex(currentIndex); // Current becomes previous
+      setTransitioning(true);
+      setPreviousIndex(currentIndex);
       setCurrentIndex(
         (prevIndex) => (prevIndex - 1 + slides.length) % slides.length
-      ); // Move to previous
+      );
     }
   };
 
-  // Swipe detection
   useEffect(() => {
     const carousel = carouselRef.current;
     let touchStartX = 0;
     let touchEndX = 0;
-    const swipeThreshold = 30; // Minimum distance to register a swipe
+    const swipeThreshold = 30;
 
     const handleTouchStart = (e) => {
-      touchStartX = e.touches[0].clientX; // Record the starting touch position
-      console.log("Touch Start X:", touchStartX);
+      touchStartX = e.touches[0].clientX;
     };
 
     const handleTouchMove = (e) => {
-      touchEndX = e.touches[0].clientX; // Update the current touch position
-      console.log("Touch Move X:", touchEndX);
-      e.preventDefault(); // Prevent browser default actions like scrolling
+      touchEndX = e.touches[0].clientX;
+      e.preventDefault();
     };
 
     const handleTouchEnd = (e) => {
-      const swipeDistance = touchStartX - touchEndX; // Calculate the swipe distance
-      console.log("Touch End X:", touchEndX);
-      console.log("Swipe Distance:", swipeDistance);
-
-      // Trigger actions based on swipe distance
+      const swipeDistance = touchStartX - touchEndX;
       if (Math.abs(swipeDistance) > swipeThreshold) {
         if (swipeDistance > 0) {
-          console.log("Swiped Left → Next Slide");
           nextSlide();
         } else {
-          console.log("Swiped Right → Previous Slide");
           prevSlide();
         }
-      } else {
-        console.log("Swipe too short, no action taken.");
       }
     };
 
     if (carousel) {
-      console.log("Adding touch event listeners...");
       carousel.addEventListener("touchstart", handleTouchStart, {
         passive: false,
       });
@@ -113,13 +98,13 @@ export default function Carousel() {
 
     return () => {
       if (carousel) {
-        console.log("Removing touch event listeners...");
         carousel.removeEventListener("touchstart", handleTouchStart);
         carousel.removeEventListener("touchmove", handleTouchMove);
         carousel.removeEventListener("touchend", handleTouchEnd);
       }
     };
-  }, []); // Ensure listeners are added only once
+  }, []);
+
   useEffect(() => {
     const carousel = carouselRef.current;
     if (carousel) {
@@ -162,8 +147,8 @@ export default function Carousel() {
             src={slides[currentIndex]?.image}
             alt="incoming slide"
             className={`carousel-image incoming ${
-              !transitioning && !initialAnimation ? "active" : "" // Ensure active only after initial animation
-            } ${initialAnimation ? "initial-animation" : ""}`} // Add initial animation class
+              !transitioning && !initialAnimation ? "active" : ""
+            } ${initialAnimation ? "initial-animation" : ""}`}
           />
         </div>
       </div>
