@@ -54,6 +54,9 @@
   color:black;
   border-color:black ;
 }
+.visit-page.night-mode::selection{
+  color:black;
+}
 
 @media (min-width:1100px) {
   .special-layout {
