@@ -36,12 +36,6 @@ export default function Carousel() {
     }
   }, [transitioning]);
 
-  useEffect(() => {
-    console.log("Transitioning State:", transitioning);
-    console.log("Previous Index:", previousIndex);
-    console.log("Current Index:", currentIndex);
-  }, [transitioning, previousIndex, currentIndex]);
-
   const nextSlide = () => {
     if (!transitioning) {
       setTransitioning(true);
@@ -64,7 +58,7 @@ export default function Carousel() {
     const carousel = carouselRef.current;
     let touchStartX = 0;
     let touchEndX = 0;
-    const swipeThreshold = 30;
+    const swipeThreshold = 50;
 
     const handleTouchStart = (e) => {
       touchStartX = e.touches[0].clientX;
@@ -103,14 +97,6 @@ export default function Carousel() {
         carousel.removeEventListener("touchend", handleTouchEnd);
       }
     };
-  }, []);
-
-  useEffect(() => {
-    const carousel = carouselRef.current;
-    if (carousel) {
-      console.log("Carousel Width:", carousel.offsetWidth);
-      console.log("Carousel Height:", carousel.offsetHeight);
-    }
   }, []);
 
   return (
