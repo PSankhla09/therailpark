@@ -9,12 +9,14 @@
 }
 
 .carousel-container {
-    touch-action: pan-y; /* Prevent scroll conflicts while allowing vertical scrolling */
+    touch-action: pan-y;
+    /* Prevent scroll conflicts while allowing vertical scrolling */
     cursor: pointer;
     flex-wrap: wrap;
     display: flex;
     position: relative;
-    user-select: none; /* Disable text/image selection */
+    user-select: none;
+    /* Disable text/image selection */
 }
 
 .carousel-container:active {
@@ -84,7 +86,8 @@
     opacity: 1;
     transform: scale(1) translate(0, 0) rotate(0deg);
     transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
-    -webkit-user-drag: none; /* Disable drag behavior for WebKit-based browsers */
+    -webkit-user-drag: none;
+    /* Disable drag behavior for WebKit-based browsers */
     user-select: none;
 }
 
@@ -118,16 +121,24 @@
     z-index: 10;
 }
 
-.prev-btn { left: 10px; }
-.next-btn { right: 10px; }
-.swipe-callout{
+.prev-btn {
+    left: 10px;
+}
+
+.next-btn {
+    right: 10px;
+}
+
+.swipe-callout {
     display: none;
 }
+
 /* Media Queries for Responsive Behavior */
 @media (max-width: 1260px) {
     .title h1 {
         font-size: 7rem;
     }
+
     .carousel-image {
         width: 45vw;
         height: 60vh;
@@ -145,7 +156,7 @@
     .title {
         margin-left: 2vw;
     }
-    
+
     .title h1 {
         width: 60vw;
         margin-top: 15vw;
@@ -155,6 +166,7 @@
     .carousel-content {
         display: none;
     }
+
     .carousel-container {
         transform: translateY(40vh);
         height: 55vh;
@@ -176,22 +188,25 @@
     }
 
     /* Remove buttons in swipe mode */
-    .prev-btn, .next-btn {
+    .prev-btn,
+    .next-btn {
         display: none;
     }
-    
-    
+
+
 }
-@media(max-width:550px){
-    .carousel-container{
+
+@media(max-width:550px) {
+    .carousel-container {
         margin-top: -20vh;
         margin-bottom: 15vh;
-        width:100vw;
-        height:70vh;
+        width: 100vw;
+        height: 70vh;
     }
-    .carousel-image{
-        width:90%;
-        height:70vh;
+
+    .carousel-image {
+        width: 90%;
+        height: 70vh;
         margin-right: 2vw;
     }
 }
