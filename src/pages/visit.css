@@ -3,157 +3,178 @@
   background-color: black;
   color: white;
   transition: background 0.5s ease-in-out, color 0.5s ease-in-out;
-  --stroke-color: white; /* Default Night Mode */
+  --stroke-color: white;
+  /* Default Night Mode */
 }
 
 /* Day Mode */
 .visit-page.day-mode {
   background-color: transparent;
   color: black;
-  --stroke-color: black; /* Day Mode */
+  --stroke-color: black;
+  /* Day Mode */
 }
-.visit-page.night-mode .ribbon,.visit-page.night-mode .ribbon .language{
+
+.visit-page.night-mode .ribbon,
+.visit-page.night-mode .ribbon .language {
   background-color: black;
   opacity: 0.93;
-  color:white;
-  border:none;
+  color: white;
+  border: none;
 }
-.visit-page.night-mode .ribbon .logo img{
+
+.visit-page.night-mode .ribbon .logo img {
   filter: grayscale(0) brightness(100%);
 }
-.visit-page.night-mode .ribbon .bar{
+
+.visit-page.night-mode .ribbon .bar {
   background-color: white;
 }
-.visit-page.night-mode .ribbon .donate{
+
+.visit-page.night-mode .ribbon .donate {
   background-color: transparent;
   color: white;
-  border:white 1px solid;
+  border: white 1px solid;
 }
-.visit-page.night-mode .ribbon .hamburger-icon:hover .bar{
+
+.visit-page.night-mode .ribbon .hamburger-icon:hover .bar {
   background-color: #0CEE72;
 }
-.visit-page.night-mode .ribbon .donate:hover{
+
+.visit-page.night-mode .ribbon .donate:hover {
   background-color: #04C75C;
-  
+
 }
 
 
 
 
-.visit-page button{
-  color:white;
+.visit-page button {
+  color: white;
 }
-.visit-page.day-mode button{
+
+.visit-page.day-mode button {
   color: black;
 }
-.visit-page a{
-  color:white;
+
+.visit-page a {
+  color: white;
   border-color: white;
 }
-.visit-page.day-mode a{
-  color:black;
-  border-color:black ;
+
+.visit-page.day-mode a {
+  color: black;
+  border-color: black;
 }
-.visit-page.night-mode::selection{
-  color:black;
+
+.visit-page.night-mode::selection {
+  color: black;
 }
 
 @media (min-width:1100px) {
   .special-layout {
     display: flex;
     flex-direction: row;
-    align-items: center; /* Centering all sections horizontally */
-    gap: 0px; /* Increase spacing for better separation between sections */
-    padding: 0px; /* Adding some padding for consistent spacing */
+    align-items: center;
+    gap: 0px;
+    padding: 0px;
     position: relative;
   }
-  
-  .special-layout > div {
+
+  .special-layout>div {
     display: flex;
-    align-items: center; /* Ensure vertical alignment */
-    
+    align-items: center;
     width: 100%;
   }
-  .special-layout .text-container a{
+
+  .special-layout .text-container a {
     margin-left: 3vw;
 
   }
-  .special-layout .text-container:hover a{
-    color:#0CEE72;
+
+  .special-layout .text-container:hover a {
+    color: #0CEE72;
     transition: color 0.3s ease-in-out;
   }
+
   /* Add the vertical line */
-.special-layout::after {
-  content: "";
-  position: absolute;
-  top: -5vw;
-  bottom: 0;
-  left: 50%; /* Place the line in the center of the layout */
-  width: 2px; /* Slightly thicker line for visibility */
-  background-color: white; /* Neutral color to fit most designs */
-  transform: translateX(-50%); /* Center-align the line perfectly */
-  z-index: 1; /* Ensure the line is above the background */
-}
-  .special-layout .text-container{
+  .special-layout::after {
+    content: "";
+    position: absolute;
+    top: -5vw;
+    bottom: 0;
+    left: 50%;
+    width: 2px;
+    background-color: white;
+    transform: translateX(-50%);
+    z-index: 1;
+  }
+
+  .special-layout .text-container {
     display: flex;
     flex-direction: column;
-    gap:4vw;
+    gap: 4vw;
   }
-.special-layout .text-container p{
-  order:3;
-  
-}
-  .visit-page.day-mode .special-layout::after{
-    background-color:black;
-  }
-  .special-layout .text-container button{
-    transform: translate(0,3vw);
-    order:1;
-  }
-  .special-layout .text-container h2{
-    order:2;
-    text-align: center;
-  }
-  .special-layout .ada-tooltip{
-    transform: translate(0,0);
+
+  .special-layout .text-container p {
+    order: 3;
 
   }
+
+  .visit-page.day-mode .special-layout::after {
+    background-color: black;
+  }
+
+  .special-layout .text-container button {
+    transform: translate(0, 3vw);
+    order: 1;
+  }
+
+  .special-layout .text-container h2 {
+    order: 2;
+    text-align: center;
+  }
+
+  .special-layout .ada-tooltip {
+    transform: translate(0, 0);
+
+  }
+
   .special-layout .text-container button:hover {
     color: #04C75C;
-    /* Turn green on hover */
   }
-  
-  .special-layout .ada-tooltip::before{
+
+  .special-layout .ada-tooltip::before {
     bottom: -0.7rem;
     left: 50%;
     transform: translateX(-50%);
     border-width: 0.8rem 0.6rem 0px;
-    border-color:#04C75C transparent transparent transparent;
+    border-color: #04C75C transparent transparent transparent;
   }
-  
-  .special-layout > div > div:first-child {
-    flex: 1; /* Adjusting flex for proportional spacing */
-    max-width: 45%; /* Expand text area for better readability */
+
+  .special-layout>div>div:first-child {
+    flex: 1;
+    max-width: 45%;
     display: flex;
     align-items: center;
-    flex-direction: column; /* Stack content vertically within sections */
+    flex-direction: column;
     justify-content: flex-start;
   }
-  
-  .special-layout > div > div:last-child {
-    flex: 1; /* Reduced flex for icon-container */
+
+  .special-layout>div>div:last-child {
+    flex: 1;
     display: flex;
-    flex-direction: column; /* Stack content vertically within sections */
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     max-width: 45%;
   }
-  
+
   .special-layout .button {
-    margin-left: 30px; /* Adding more breathing space for the icon */
-    align-self: flex-end; /* Align the icon to the right of the section */
-      margin-top: auto; /* Push the icon to the bottom of the section */
+    margin-left: 30px;
+    align-self: flex-end;
+    margin-top: auto;
   }
-  
-  
+
+
 }
