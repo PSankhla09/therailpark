@@ -28,7 +28,6 @@ function Visit() {
       <VisitContent />
       <Transport />
       <Calender />
-
       <Email />
     </div>
   );
