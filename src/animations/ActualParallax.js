@@ -1,15 +1,19 @@
 import React, { useEffect, useRef, useState } from "react";
+import { useLocation } from "react-router-dom";
 
 const ActualParallax = ({ children, speed = 0.5 }) => {
   const parallaxRef = useRef(null);
+  const location = useLocation();
   const [isParallaxEnabled, setIsParallaxEnabled] = useState(
-    window.innerWidth > 800
+    window.innerWidth > 800 && location.pathname !== "/visit"
   );
-  const [defaultTransform, setDefaultTransform] = useState(""); // Store the default transform
+  const [defaultTransform, setDefaultTransform] = useState("");
 
   useEffect(() => {
     const handleResize = () => {
-      setIsParallaxEnabled(window.innerWidth > 800); // Enable parallax only if width > 800px
+      setIsParallaxEnabled(
+        window.innerWidth > 800 && location.pathname !== "/visit"
+      );
     };
 
     window.addEventListener("resize", handleResize);
@@ -17,10 +21,9 @@ const ActualParallax = ({ children, speed = 0.5 }) => {
     return () => {
       window.removeEventListener("resize", handleResize);
     };
-  }, []);
+  }, [location.pathname]);
 
   useEffect(() => {
-    // Capture the default transform value when the component mounts
     if (parallaxRef.current) {
       const computedStyle = getComputedStyle(parallaxRef.current);
       setDefaultTransform(computedStyle.transform || "none");
@@ -31,9 +34,8 @@ const ActualParallax = ({ children, speed = 0.5 }) => {
     const handleScroll = () => {
       if (parallaxRef.current) {
         if (isParallaxEnabled) {
-          const offset = window.scrollY * speed; // Calculate offset based on scroll position
+          const offset = window.scrollY * speed;
 
-          // Preserve other transform values and only update translateY
           const existingTransform = getComputedStyle(
             parallaxRef.current
           ).transform;
@@ -47,7 +49,6 @@ const ActualParallax = ({ children, speed = 0.5 }) => {
 
           parallaxRef.current.style.transform = updatedTransform;
         } else {
-          // Reset to the default transform value
           parallaxRef.current.style.transform = defaultTransform;
         }
       }
