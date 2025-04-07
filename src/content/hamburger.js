@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FaSearch, FaInstagram, FaTwitter, FaFacebook } from "react-icons/fa";
 import {
   animateMenuOpen,
@@ -17,9 +17,14 @@ const HamburgerMenu = () => {
       setTimeout(() => setIsOpen(false), 50);
     } else {
       setIsOpen(true);
-      animateMenuOpen();
     }
   };
+
+  useEffect(() => {
+    if (isOpen) {
+      animateMenuOpen();
+    }
+  }, [isOpen]);
 
   return (
     <>

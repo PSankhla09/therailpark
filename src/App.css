@@ -13,6 +13,13 @@
   }
 }
 
+/* Prevent background scrolling */
+.noscroll2 {
+  overflow: hidden;
+  height: 100vh;
+  /* Prevent scrolling by locking the height */
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -32,11 +39,12 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
 }
-::selection {
-  background-color: #0CEE72; 
-}
 
+::selection {
+  background-color: #0CEE72;
+}
