@@ -18,7 +18,7 @@ export const animateMenuClose = () => {
 
     setTimeout(() => {
       menu.style.display = "none";
-    }, 500);
+    }, 50);
   }
 };
 

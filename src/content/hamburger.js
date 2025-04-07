@@ -14,7 +14,7 @@ const HamburgerMenu = () => {
   const toggleMenu = () => {
     if (isOpen) {
       animateMenuClose();
-      setTimeout(() => setIsOpen(false), 500);
+      setTimeout(() => setIsOpen(false), 50);
     } else {
       setIsOpen(true);
       animateMenuOpen();
