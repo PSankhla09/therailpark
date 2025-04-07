@@ -4,7 +4,7 @@
   color: white;
   padding: 15vh 7vw;
   padding-bottom: 0vh;
-  height: 75vh;
+  height: fit-content;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -123,9 +123,7 @@
 }
 
 @media(max-width:1180px) {
-  .footer {
-    height: 68vh;
-  }
+
 
   .info-section p {
     font-size: 1.35rem;
