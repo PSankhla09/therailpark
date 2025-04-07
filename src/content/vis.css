@@ -1,8 +1,9 @@
 .visit-container {
-  margin: 0 5vw;
+  margin: 5vh 5vw;
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  margin-bottom: -15vh;
 }
 
 .titl h1 {
@@ -201,28 +202,36 @@
     font-size: 6vw;
     width: 30vw;
   }
+
   .visit-container {
-    margin: 0 3vw;
+    margin: -15vh 3vw;
   }
+
   .text-container {
     margin-left: 0vw;
   }
+
   .text-container button {
     transform: translate(25vw, -7vw);
   }
+
   .text-container:nth-child(1) button {
     transform: translate(30vw, -7vw);
   }
+
   .text-container:nth-child(1) {
     margin-left: 0vw;
   }
+
   .ada-button svg {
     width: 50px;
     height: 50px;
   }
+
   .ada-tooltip {
     transform: translate(-23vw, 3vw);
   }
+
   .ada-tooltip::before {
     transform: translate(22.2vw, 0vw);
     border-width: 0.8rem 0rem 0rem 0.8rem;
@@ -231,52 +240,75 @@
 }
 
 @media(max-width:980px) {
+  .visit-container {
+    margin: -20vh 3vw;
+    margin-bottom: -20vh;
+  }
+
   .text-container {
     width: 90vw;
     display: inline;
   }
+
   .section {
     display: inline;
   }
+
   .titl h1 {
     margin-left: 32vw;
     width: 30vw;
     text-align: center;
     margin-bottom: 10vw;
   }
+
   .section .arrow svg path {
     transform: rotate(-90deg);
     transform-origin: center;
     transition: transform 0.8s ease;
   }
+
   .section:hover .arrow svg {
     transform: translateY(-10px) scale(1.1);
   }
+
   .section:hover .arrow.inverted svg {
     transform: translateY(-10px) scale(1.1);
   }
+
   .section {
     display: flex;
     flex-direction: column;
   }
+
   .section:nth-child(2) .parallax-media {
     order: 1;
   }
+
   .section:nth-child(2) .text-container {
     order: 2;
   }
-  .ada-button svg{
+
+  .ada-button svg {
     transform: translateX(50vw);
   }
-  .ada-tooltip{
-    transform: translate(28vw,2vw);
+
+  .ada-tooltip {
+    transform: translate(28vw, 2vw);
   }
-  .ada-tooltip{
+
+  .ada-tooltip {
     font-size: 0.9rem;
   }
+
   .ada-tooltip::before {
     transform: translate(23vw, 0vw);
     border-width: 0.8rem 0rem 0rem 0.8rem;
     border-color: transparent transparent transparent #04C75C;
+  }
+}
+
+@media (max-width:800px) {
+  .visit-container {
+    margin: 0vh 3vw;
   }
 }

@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import "./carousel.css";
 import slide1 from "./0f55920f-6808-48d2-a89a-b99a5ca72ca0_the-cut.avif";
 import slide2 from "./b75ee5d3-664e-44d8-975a-b739140bf61d_landing-page-header-phase-1.avif";
+import ActualParallax from "../animations/ActualParallax"; // Import the Parallax component
 
 const slides = [
   { text: "Turning historic tracks into an unparalleled park.", image: slide1 },
@@ -105,39 +106,46 @@ export default function Carousel() {
         <h1 className="title">The Rail Park</h1>
       </div>
       <br />
-      <div className="carousel-container" ref={carouselRef}>
-        <div className="carousel-content">
-          <p
-            className={`slide-text ${!transitioning ? "fade-transition" : ""}`}
-          >
-            {slides[currentIndex].text}
-          </p>
-          <button className="prev-btn" onClick={prevSlide}>
-            &#8592;
-          </button>
-          <button className="next-btn" onClick={nextSlide}>
-            &#8594;
-          </button>
-        </div>
-        <div className="carousel-image-container">
-          {transitioning && (
+
+      {/* Wrap the carousel-container with ActualParallax */}
+      <ActualParallax speed={0.2}>
+        <div className="carousel-container" ref={carouselRef}>
+          <div className="carousel-content">
+            <p
+              className={`slide-text ${
+                !transitioning ? "fade-transition" : ""
+              }`}
+            >
+              {slides[currentIndex].text}
+            </p>
+            <button className="prev-btn" onClick={prevSlide}>
+              &#8592;
+            </button>
+            <button className="next-btn" onClick={nextSlide}>
+              &#8594;
+            </button>
+          </div>
+
+          <div className="carousel-image-container">
+            {transitioning && (
+              <img
+                key={previousIndex}
+                src={slides[previousIndex]?.image}
+                alt="outgoing slide"
+                className="carousel-image outgoing"
+              />
+            )}
             <img
-              key={previousIndex}
-              src={slides[previousIndex]?.image}
-              alt="outgoing slide"
-              className="carousel-image outgoing"
+              key={currentIndex}
+              src={slides[currentIndex]?.image}
+              alt="incoming slide"
+              className={`carousel-image incoming ${
+                !transitioning && !initialAnimation ? "active" : ""
+              } ${initialAnimation ? "initial-animation" : ""}`}
             />
-          )}
-          <img
-            key={currentIndex}
-            src={slides[currentIndex]?.image}
-            alt="incoming slide"
-            className={`carousel-image incoming ${
-              !transitioning && !initialAnimation ? "active" : ""
-            } ${initialAnimation ? "initial-animation" : ""}`}
-          />
+          </div>
         </div>
-      </div>
+      </ActualParallax>
     </div>
   );
 }
