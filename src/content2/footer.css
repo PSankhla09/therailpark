@@ -207,3 +207,26 @@
     transform: translate(-30vw, 45vw);
   }
 }
+
+@media (max-width:400px) {
+  .info-section {
+    transform: translate(15vw, 20vw);
+  }
+
+  .bottom-section {
+    width: 70vw;
+  }
+
+  .footer {
+    height: 140vh;
+  }
+
+  .social-icons svg {
+    transform: translate(-30vw, 10vw);
+  }
+
+  .t {
+    transform: translate(-35vw, 45vw);
+  }
+
+}
