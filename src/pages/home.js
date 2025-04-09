@@ -14,8 +14,8 @@ function Home() {
       <Visit />
       <Text />
       <HomeContent />
-      <Email />
       <Calender />
+      <Email />
     </>
   );
 }
