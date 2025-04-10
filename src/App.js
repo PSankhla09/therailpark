@@ -20,7 +20,7 @@ function App() {
           console.warn("⏳ 30-second timeout reached. Hiding preloader.");
           setTimeoutReached(true);
           setIsLoading(false);
-        }, 30000); // 30 seconds
+        }, 45000); // 45 seconds
 
         await preloadAssets(); // wait for all assets to preload
         if (!timeoutReached) {
