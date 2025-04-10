@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/therailpark/static/css/main.fa1234c9.css",
-    "main.js": "/therailpark/static/js/main.722a6557.js",
+    "main.css": "/therailpark/static/css/main.d5d9dd0b.css",
+    "main.js": "/therailpark/static/js/main.c1362015.js",
     "static/js/453.bb69927e.chunk.js": "/therailpark/static/js/453.bb69927e.chunk.js",
     "static/media/homepage-viaduct.mp4": "/therailpark/static/media/homepage-viaduct.c500414639ab7b06c150.mp4",
     "static/media/homepage-cut.mp4": "/therailpark/static/media/homepage-cut.10b6e97b03211d9b66a8.mp4",
@@ -9,6 +9,7 @@
     "static/media/homepage-tunnel.mp4": "/therailpark/static/media/homepage-tunnel.8e3eeeb80108bf19eeba.mp4",
     "static/media/noble-st-entrance.mp4": "/therailpark/static/media/noble-st-entrance.1c3e4ce719e696d4e45e.mp4",
     "static/media/callowhill-st-entrance.mp4": "/therailpark/static/media/callowhill-st-entrance.fe22c7d533a47ed6ede0.mp4",
+    "static/media/loader.gif": "/therailpark/static/media/loader.4c1dbeaa64edc4a81f44.gif",
     "static/media/coin.mp4": "/therailpark/static/media/coin.155288ee7d4bbd60b762.mp4",
     "static/media/28507bd7-e937-4074-87b0-95751194f4c1_noble-entrance.avif": "/therailpark/static/media/28507bd7-e937-4074-87b0-95751194f4c1_noble-entrance.3ddb335e3bd7dddf92c1.avif",
     "static/media/ca831225-3552-40ec-9f6f-bb576af3eb65_callowhill-entrance.avif": "/therailpark/static/media/ca831225-3552-40ec-9f6f-bb576af3eb65_callowhill-entrance.832492ce426cf5d6ae9c.avif",
@@ -30,12 +31,12 @@
     "static/media/Z8ciGBsAHJWomGpy_CopyofMfPS_Heading+graphic+iconography-2-.png": "/therailpark/static/media/Z8ciGBsAHJWomGpy_CopyofMfPS_Heading+graphic+iconography-2-.e0e3e8e9fde2e7a710af.png",
     "static/media/logo192.png": "/therailpark/static/media/logo192.28b6bb2cb99da54698b5.png",
     "index.html": "/therailpark/index.html",
-    "main.fa1234c9.css.map": "/therailpark/static/css/main.fa1234c9.css.map",
-    "main.722a6557.js.map": "/therailpark/static/js/main.722a6557.js.map",
+    "main.d5d9dd0b.css.map": "/therailpark/static/css/main.d5d9dd0b.css.map",
+    "main.c1362015.js.map": "/therailpark/static/js/main.c1362015.js.map",
     "453.bb69927e.chunk.js.map": "/therailpark/static/js/453.bb69927e.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.fa1234c9.css",
-    "static/js/main.722a6557.js"
+    "static/css/main.d5d9dd0b.css",
+    "static/js/main.c1362015.js"
   ]
 }
