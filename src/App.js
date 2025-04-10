@@ -10,9 +10,7 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [loadedAssets, setLoadedAssets] = useState(0);
   const [totalAssets, setTotalAssets] = useState(0);
-
   const trackedAssets = useRef(new Set());
-  const mutationTimeout = useRef(null);
   const observerRef = useRef(null);
 
   const incrementLoadedAssets = () => {
@@ -21,20 +19,6 @@ function App() {
       console.log(`Loaded assets: ${updated}/${totalAssets}`);
       return updated;
     });
-  };
-
-  const detectAndTrackImages = () => {
-    const images = Array.from(document.querySelectorAll("img"));
-    const newImages = images.filter((img) => !trackedAssets.current.has(img));
-
-    newImages.forEach((img) => {
-      trackedAssets.current.add(img);
-      handleImage(img);
-    });
-
-    const updatedTotal = trackedAssets.current.size;
-    setTotalAssets(updatedTotal);
-    console.log("Updated total assets (images only):", updatedTotal);
   };
 
   const handleImage = (img) => {
@@ -47,21 +31,53 @@ function App() {
     if (img.complete) {
       onLoadOrError();
     } else {
-      console.log(`Waiting for image: ${img.src}`);
       img.addEventListener("load", onLoadOrError);
       img.addEventListener("error", onLoadOrError);
     }
   };
 
-  const setupMutationObserver = () => {
-    if (observerRef.current) observerRef.current.disconnect();
+  const detectAndTrackImages = () => {
+    const images = Array.from(document.querySelectorAll("img"));
+    const newImages = images.filter((img) => !trackedAssets.current.has(img));
 
+    if (newImages.length === 0) return;
+
+    newImages.forEach((img) => {
+      trackedAssets.current.add(img);
+      handleImage(img);
+    });
+
+    const total = trackedAssets.current.size;
+    setTotalAssets(total);
+    console.log("Image tracking started. Total assets:", total);
+  };
+
+  useEffect(() => {
+    const startTrackingAfterDOMSettles = () => {
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          setTimeout(() => {
+            console.log(
+              "DOM rendered and stable. Now starting image tracking."
+            );
+            detectAndTrackImages();
+            setupMutationObserver();
+          }, 100);
+        });
+      });
+    };
+
+    startTrackingAfterDOMSettles();
+
+    return () => {
+      if (observerRef.current) observerRef.current.disconnect();
+    };
+  }, []);
+
+  const setupMutationObserver = () => {
     observerRef.current = new MutationObserver(() => {
-      if (mutationTimeout.current) clearTimeout(mutationTimeout.current);
-      mutationTimeout.current = setTimeout(() => {
-        console.log("DOM mutated. Checking for new images...");
-        detectAndTrackImages();
-      }, 300);
+      console.log("Mutation observed, rechecking for new images...");
+      detectAndTrackImages();
     });
 
     observerRef.current.observe(document.body, {
@@ -71,42 +87,26 @@ function App() {
   };
 
   useEffect(() => {
-    const loadAllImages = async () => {
-      console.log("Initial image detection...");
-      detectAndTrackImages();
-
-      setupMutationObserver();
-    };
-
-    loadAllImages();
-
-    return () => {
-      if (observerRef.current) observerRef.current.disconnect();
-      if (mutationTimeout.current) clearTimeout(mutationTimeout.current);
-    };
-  }, []);
-
-  useEffect(() => {
     if (totalAssets > 0 && loadedAssets >= totalAssets) {
-      console.log("All images loaded. Hiding preloader.");
+      console.log("✅ All assets loaded. Hiding preloader.");
       setIsLoading(false);
     }
   }, [loadedAssets, totalAssets]);
 
   return (
     <div className="App">
-      {isLoading ? (
+      {/* Main app content (always rendered, even during loading) */}
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/visit" element={<Visit />} />
+      </Routes>
+      <Footer />
+
+      {/* Preloader overlay shown on top */}
+      {isLoading && (
         <div className="preloader-overlay">
           <Preloader />
         </div>
-      ) : (
-        <>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/visit" element={<Visit />} />
-          </Routes>
-          <Footer />
-        </>
       )}
     </div>
   );
