@@ -10,15 +10,20 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const waitForFonts = () => {
-      return document.fonts.ready;
+    const waitForFonts = async () => {
+      await document.fonts.ready;
+      console.log("Fonts loaded.");
     };
 
     const handleAssetLoad = async () => {
-      const allAssets = [...document.querySelectorAll("img, video")];
-      console.log(`Assets detected: ${allAssets.length}`, allAssets);
+      const detectAssets = () => {
+        const allAssets = [...document.querySelectorAll("img, video")];
+        console.log(`Assets detected: ${allAssets.length}`, allAssets);
+        return allAssets;
+      };
 
       let loadedAssets = 0;
+      const allAssets = detectAssets();
       const totalAssets = allAssets.length + 1; // +1 for fonts
 
       if (totalAssets === 0) {
@@ -29,35 +34,43 @@ function App() {
 
       const checkAssetLoaded = () => {
         loadedAssets++;
+        console.log(`Loaded assets: ${loadedAssets}/${totalAssets}`);
         if (loadedAssets === totalAssets) {
           console.log("All assets loaded.");
           setIsLoading(false);
         }
       };
 
+      // Check each asset (images and videos)
       allAssets.forEach((asset) => {
         if (asset.complete || asset.readyState === "complete") {
           console.log(`Asset already loaded: ${asset.src}`);
           checkAssetLoaded();
         } else {
           asset.addEventListener("load", checkAssetLoaded);
-          asset.addEventListener("error", checkAssetLoaded);
+          asset.addEventListener("error", () => {
+            console.error(`Asset failed to load: ${asset.src}`);
+          });
         }
       });
 
+      // Wait for fonts to load
       await waitForFonts();
-      console.log("Fonts loaded.");
       checkAssetLoaded();
-
-      const timeout = setTimeout(() => {
-        console.warn("Timeout reached. Hiding preloader.");
-        setIsLoading(false);
-      }, 20000);
-
-      return () => clearTimeout(timeout);
     };
 
+    // Use MutationObserver to detect dynamically added assets
+    const observer = new MutationObserver(() => {
+      console.log("DOM changed. Re-running asset detection.");
+      handleAssetLoad();
+    });
+
+    observer.observe(document.body, { childList: true, subtree: true });
+
+    // Initial asset load
     handleAssetLoad();
+
+    return () => observer.disconnect(); // Cleanup observer on unmount
   }, []);
 
   return (
