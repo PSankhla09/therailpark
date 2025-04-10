@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
 import Footer from "./content2/footer";
@@ -8,80 +8,102 @@ import Preloader from "./animations/Preloader";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
+  const [loadedAssets, setLoadedAssets] = useState(0);
+  const [totalAssets, setTotalAssets] = useState(0);
 
-  useEffect(() => {
-    const waitForFonts = async () => {
-      await document.fonts.ready;
-      console.log("Fonts loaded.");
-    };
+  const trackedAssets = useRef(new Set());
+  const mutationTimeout = useRef(null);
+  const observerRef = useRef(null);
 
-    const handleAssetLoad = async () => {
-      const detectAssets = () => {
-        const allAssets = [...document.querySelectorAll("img, video")];
-        console.log(`Assets detected: ${allAssets.length}`, allAssets);
-        return allAssets;
-      };
+  const incrementLoadedAssets = () => {
+    setLoadedAssets((prev) => {
+      const updated = prev + 1;
+      console.log(`Loaded assets: ${updated}/${totalAssets}`);
+      return updated;
+    });
+  };
 
-      let loadedAssets = 0;
-      const allAssets = detectAssets();
-      const totalAssets = allAssets.length + 1; // +1 for fonts
+  const detectAndTrackImages = () => {
+    const images = Array.from(document.querySelectorAll("img"));
+    const newImages = images.filter((img) => !trackedAssets.current.has(img));
 
-      if (totalAssets === 0) {
-        console.log("No assets detected. Hiding preloader.");
-        setIsLoading(false);
-        return;
-      }
-
-      const checkAssetLoaded = () => {
-        loadedAssets++;
-        console.log(`Loaded assets: ${loadedAssets}/${totalAssets}`);
-        if (loadedAssets === totalAssets) {
-          console.log("All assets loaded.");
-          setIsLoading(false);
-        }
-      };
-
-      // Check each asset (images and videos)
-      allAssets.forEach((asset) => {
-        if (asset.complete || asset.readyState === "complete") {
-          console.log(`Asset already loaded: ${asset.src}`);
-          checkAssetLoaded();
-        } else {
-          asset.addEventListener("load", checkAssetLoaded);
-          asset.addEventListener("error", () => {
-            console.error(`Asset failed to load: ${asset.src}`);
-          });
-        }
-      });
-
-      // Wait for fonts to load
-      await waitForFonts();
-      checkAssetLoaded();
-    };
-
-    // Use MutationObserver to detect dynamically added assets
-    const observer = new MutationObserver(() => {
-      console.log("DOM changed. Re-running asset detection.");
-      handleAssetLoad();
+    newImages.forEach((img) => {
+      trackedAssets.current.add(img);
+      handleImage(img);
     });
 
-    observer.observe(document.body, { childList: true, subtree: true });
+    const updatedTotal = trackedAssets.current.size;
+    setTotalAssets(updatedTotal);
+    console.log("Updated total assets (images only):", updatedTotal);
+  };
 
-    // Initial asset load
-    handleAssetLoad();
+  const handleImage = (img) => {
+    const onLoadOrError = () => {
+      incrementLoadedAssets();
+      img.removeEventListener("load", onLoadOrError);
+      img.removeEventListener("error", onLoadOrError);
+    };
 
-    return () => observer.disconnect(); // Cleanup observer on unmount
+    if (img.complete) {
+      onLoadOrError();
+    } else {
+      console.log(`Waiting for image: ${img.src}`);
+      img.addEventListener("load", onLoadOrError);
+      img.addEventListener("error", onLoadOrError);
+    }
+  };
+
+  const setupMutationObserver = () => {
+    if (observerRef.current) observerRef.current.disconnect();
+
+    observerRef.current = new MutationObserver(() => {
+      if (mutationTimeout.current) clearTimeout(mutationTimeout.current);
+      mutationTimeout.current = setTimeout(() => {
+        console.log("DOM mutated. Checking for new images...");
+        detectAndTrackImages();
+      }, 300);
+    });
+
+    observerRef.current.observe(document.body, {
+      childList: true,
+      subtree: true,
+    });
+  };
+
+  useEffect(() => {
+    const loadAllImages = async () => {
+      console.log("Initial image detection...");
+      detectAndTrackImages();
+
+      setupMutationObserver();
+    };
+
+    loadAllImages();
+
+    return () => {
+      if (observerRef.current) observerRef.current.disconnect();
+      if (mutationTimeout.current) clearTimeout(mutationTimeout.current);
+    };
   }, []);
+
+  useEffect(() => {
+    if (totalAssets > 0 && loadedAssets >= totalAssets) {
+      console.log("All images loaded. Hiding preloader.");
+      setIsLoading(false);
+    }
+  }, [loadedAssets, totalAssets]);
 
   return (
     <div className="App">
       {isLoading ? (
-        <Preloader />
+        <div className="preloader-overlay">
+          <Preloader />
+        </div>
       ) : (
         <>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="visit" element={<Visit />} />
+            <Route path="/visit" element={<Visit />} />
           </Routes>
           <Footer />
         </>
