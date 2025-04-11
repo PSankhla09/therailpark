@@ -6,8 +6,8 @@ import Home from "./pages/home";
 import Visit from "./pages/visit";
 import Preloader from "./animations/Preloader";
 import { preloadAssets } from "./animations/preloadAssets";
-import { GoogleLogin } from "@react-oauth/google";
 import { jwtDecode } from "jwt-decode";
+import LoginScreen from "./animations/LoginScreen";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -38,14 +38,14 @@ function App() {
 
     startPreload();
 
+    return () => clearTimeout(timeoutId);
+  }, [timeoutReached]);
+  useEffect(() => {
     const storedUser = localStorage.getItem("googleUser");
     if (storedUser) {
       setUser(JSON.parse(storedUser));
     }
-
-    return () => clearTimeout(timeoutId);
-  }, [timeoutReached]);
-
+  }, []);
   const handleLoginSuccess = (credentialResponse) => {
     const decoded = jwtDecode(credentialResponse.credential);
     const userData = {
@@ -65,7 +65,7 @@ function App() {
         </div>
       )}
 
-      {/* Main app always renders (preload will show above it anyway) */}
+      {/* Main app always appears (preload will show above it in any case.) */}
       <div className={`App ${isLoading ? "hidden-during-load" : ""}`}>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -74,18 +74,8 @@ function App() {
         <Footer />
       </div>
 
-      {/* Black full-screen login overlay AFTER preload */}
-      {!isLoading && !user && (
-        <div className="login-overlay">
-          <h1 className="login-title">Welcome to The Rail Park</h1>
-          <div className="google-button-container">
-            <GoogleLogin
-              onSuccess={handleLoginSuccess}
-              onError={() => console.log("Login Failed")}
-            />
-          </div>
-        </div>
-      )}
+      {/* Black fullscreen login overlay after preload */}
+      {!isLoading && !user && <LoginScreen onSuccess={handleLoginSuccess} />}
     </>
   );
 }

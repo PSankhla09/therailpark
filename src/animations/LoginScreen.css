@@ -1,0 +1,81 @@
+.login-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100dvh;
+    width: 100vw;
+    background-color: black;
+    z-index: 9999;
+    color: white;
+    display: flex;
+
+    font-family: 'CustomFont2', sans-serif;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-title {
+    font-size: 2rem;
+    font-weight: bold;
+    display: flex;
+    gap: 0.5rem;
+    color: #0CEE72;
+    margin-bottom: 2rem;
+    transition: opacity 1s ease-out forwards;
+}
+
+.bounce-word {
+    animation: dropBounce 1s ease-out forwards;
+    opacity: 0;
+}
+
+@keyframes dropBounce {
+    0% {
+        transform: translateY(-300px);
+        opacity: 0;
+    }
+
+    50% {
+        transform: translateY(20px);
+        opacity: 0.5;
+    }
+
+    70% {
+        transform: translateY(-10px);
+        opacity: 0.7;
+    }
+
+    85% {
+        transform: translateY(5px);
+        opacity: 0.85;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.animated-hover {
+    display: inline-block;
+    border-radius: 8px;
+    padding: 5px;
+    transition: all 0.3s ease;
+    background-color: transparent;
+}
+
+.animated-hover:hover {
+    background-color: black;
+    transform: scale(1.05);
+    box-shadow: 0 0 10px 2px rgba(200, 200, 200, 0.944);
+}
+
+.animated-hover>* {
+    color: rgba(0, 0, 0, 0.227);
+    transition: color 0.3s ease;
+}
+
+.animated-hover:hover>* {
+    color: white;
+}

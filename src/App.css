@@ -48,29 +48,3 @@
 ::selection {
   background-color: #0CEE72;
 }
-
-.login-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100dvh;
-  width: 100vw;
-  background-color: black;
-  z-index: 9999;
-  color: white;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.login-title {
-  font-size: 2rem;
-  margin-bottom: 20px;
-  font-family: "Helvetica Neue", sans-serif;
-}
-
-.google-button-container:hover {
-  transform: scale(1.05);
-  transition: transform 0.3s ease;
-}
