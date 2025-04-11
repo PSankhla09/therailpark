@@ -6,10 +6,10 @@ import Visit from "../content/vis";
 import Calender from "../content2/calender";
 import TopRibbon from "../content/topRibbon";
 
-function Home() {
+function Home({ user }) {
   return (
     <>
-      <TopRibbon />
+      <TopRibbon user={user} />
       <Carousel />
       <Visit />
       <Text />

@@ -89,7 +89,7 @@ body {
 
 .language {
   color: black;
-  margin-top: 1vw;
+  margin-top: 1.4vw;
   transition: color 0.3s;
 }
 
@@ -98,7 +98,7 @@ body {
 }
 
 .donate-container {
-  padding-top: 2vw;
+  padding-top: 1.8vw;
 }
 
 .donate {
@@ -120,6 +120,30 @@ body {
 
 .donate-container {
   text-align: center;
+}
+
+.user-info {
+  border: #0CEE72 1px solid;
+  background-color: #0CEE72;
+  display: flex;
+  border-radius: 20px;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.2rem 0.3rem;
+}
+
+.user-image {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgb(255, 255, 255);
+}
+
+.user-name {
+  color: black;
+  font-weight: 500;
+  font-size: 0.85rem;
 }
 
 @media(max-width:900px) {

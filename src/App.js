@@ -68,8 +68,8 @@ function App() {
       {/* Main app always appears (preload will show above it in any case.) */}
       <div className={`App ${isLoading ? "hidden-during-load" : ""}`}>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/visit" element={<Visit />} />
+          <Route path="/" element={<Home user={user} />} />
+          <Route path="/visit" element={<Visit user={user} />} />
         </Routes>
         <Footer />
       </div>

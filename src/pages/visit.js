@@ -8,7 +8,7 @@ import Transport from "../content3/transport";
 import Phase from "../content3/phase";
 import TopRibbon from "../content/topRibbon";
 
-function Visit() {
+function Visit({ user }) {
   const [isDay, setIsDay] = useState(true);
 
   useEffect(() => {
@@ -22,7 +22,7 @@ function Visit() {
 
   return (
     <div className={`visit-page ${isDay ? "day-mode" : "night-mode"}`}>
-      <TopRibbon />
+      <TopRibbon user={user} />
       <Phase />
       <VisitToggle isDay={isDay} toggleMode={toggleMode} />
       <VisitContent />
