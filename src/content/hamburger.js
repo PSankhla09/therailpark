@@ -59,10 +59,14 @@ const HamburgerMenu = () => {
             {/* Left Column */}
             <div className="menu-column">
               <p>
-                <Link to="/">HOME</Link>
+                <Link to="/" className="links">
+                  HOME
+                </Link>
               </p>
               <p>
-                <Link to="visit">VISIT</Link>
+                <Link to="visit" className="links">
+                  VISIT
+                </Link>
               </p>
               <p>RESOURCES</p>
               <p>NEWS</p>
@@ -74,7 +78,9 @@ const HamburgerMenu = () => {
             {/* Middle Column - Visit Section */}
             <div className="menu-column">
               <h4>
-                <Link to="visit">VISIT</Link>
+                <Link to="visit" className="links">
+                  VISIT
+                </Link>
               </h4>
               <p className="bold-text">LOCATION</p>
               <p className="bold-text">MAP</p>

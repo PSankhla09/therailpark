@@ -47,7 +47,13 @@
 }
 
 
+.visit-page.day-mode .links {
+  color: white
+}
 
+.visit-page .links:hover {
+  color: #04C75C;
+}
 
 .visit-page button {
   color: white;
