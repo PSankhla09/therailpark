@@ -31,7 +31,7 @@ const Parallax = ({ imageUrl, videoUrl }) => {
           className="background-image"
           style={{
             opacity: isPlaying ? 0 : 1,
-            transition: "opacity 0.5s ease-in-out",
+            transition: "opacity 0.5s linear",
           }}
         />
       ) : (
@@ -44,7 +44,7 @@ const Parallax = ({ imageUrl, videoUrl }) => {
           autoPlay
           style={{
             opacity: isPlaying ? 1 : 0,
-            transition: "opacity 0.5s ease-in-out",
+            transition: "opacity 0.5s linear",
             backgroundColor: "black",
           }}
         >

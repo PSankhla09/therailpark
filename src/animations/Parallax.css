@@ -21,7 +21,7 @@
   height: 18vw;
   object-fit: cover;
   /* Ensure the video/image covers the whole container */
-  transition: opacity 0.5s ease-in-out;
+  transition: opacity 0.5s linear;
   opacity: 1;
   border-radius: 5px;
 }
