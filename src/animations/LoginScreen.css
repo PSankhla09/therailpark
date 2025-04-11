@@ -60,7 +60,7 @@
 .animated-hover {
     display: inline-block;
     border-radius: 8px;
-    padding: 5px 5px;
+    padding: 10px 5px;
     transition: all 0.3s ease;
     background-color: transparent;
 }
@@ -72,4 +72,12 @@
 
 .animated-hover:hover>* {
     color: white;
+}
+
+@media (max-width:350px) {
+
+
+    .login-title {
+        font-size: 1.5rem;
+    }
 }
