@@ -25,7 +25,15 @@ const Parallax = ({ imageUrl, videoUrl }) => {
       onMouseLeave={handleMouseLeave}
     >
       {!isPlaying ? (
-        <img src={imageUrl} alt="Background" className="background-image" />
+        <img
+          src={imageUrl}
+          alt="Background"
+          className="background-image"
+          style={{
+            opacity: isPlaying ? 0 : 1,
+            transition: "opacity 0.5s ease-in-out",
+          }}
+        />
       ) : (
         <video
           ref={videoRef}
@@ -34,6 +42,11 @@ const Parallax = ({ imageUrl, videoUrl }) => {
           loop
           playsInline
           autoPlay
+          style={{
+            opacity: isPlaying ? 1 : 0,
+            transition: "opacity 0.5s ease-in-out",
+            backgroundColor: "black",
+          }}
         >
           <source src={videoUrl} type="video/mp4" />
         </video>
