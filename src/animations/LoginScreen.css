@@ -66,14 +66,8 @@
 }
 
 .animated-hover:hover {
-    background-color: black;
     transform: scale(1.05);
     box-shadow: 0 0 10px 2px rgba(200, 200, 200, 0.944);
-}
-
-.animated-hover>* {
-    color: rgba(0, 0, 0, 0.227);
-    transition: color 0.3s ease;
 }
 
 .animated-hover:hover>* {
