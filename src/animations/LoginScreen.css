@@ -60,14 +60,14 @@
 .animated-hover {
     display: inline-block;
     border-radius: 8px;
-    padding: 5px;
+    padding: 5px 5px;
     transition: all 0.3s ease;
     background-color: transparent;
 }
 
 .animated-hover:hover {
     transform: scale(1.05);
-    box-shadow: 0 0 10px 2px rgba(200, 200, 200, 0.944);
+    box-shadow: 0 0 10px 5px rgba(200, 200, 200, 0.944);
 }
 
 .animated-hover:hover>* {
