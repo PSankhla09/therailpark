@@ -40,10 +40,21 @@ export function preloadAssets() {
             video.preload = "auto";
             video.muted = true;
 
-            const done = () => res();
-
-            video.addEventListener("canplaythrough", done, { once: true });
-            video.addEventListener("error", done, { once: true });
+            video.addEventListener(
+              "canplaythrough",
+              () => {
+                res();
+              },
+              { once: true }
+            );
+            video.addEventListener(
+              "error",
+              () => {
+                console.warn("Video failed:", src);
+                res();
+              },
+              { once: true }
+            );
           } else {
             const img = new Image();
             img.src = src;

@@ -20,7 +20,6 @@
   width: 32vw;
   height: 18vw;
   object-fit: cover;
-  /* Ensure the video/image covers the whole container */
   transition: opacity 0.5s linear;
   opacity: 1;
   border-radius: 5px;
@@ -33,7 +32,6 @@
 
 .background-image {
   z-index: 0;
-  /* Ensure the image is behind content when it's visible */
 }
 
 @media(max-width:1250px) {
