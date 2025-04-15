@@ -21,6 +21,7 @@
   opacity: 0.93;
   color: white;
   border: none;
+  transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
 }
 
 .visit-page.night-mode .ribbon .logo img {
