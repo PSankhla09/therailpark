@@ -26,12 +26,12 @@ export const animateMenuClose = () => {
   }
 };
 
-export const useHamburgerAnimations = (isOpen) => {
-  useEffect(() => {
-    if (isOpen) {
-      animateMenuOpen();
-    } else {
-      animateMenuClose();
-    }
-  }, [isOpen]);
-};
+// export const useHamburgerAnimations = (isOpen) => {
+//   useEffect(() => {
+//     if (isOpen) {
+//       animateMenuOpen();
+//     } else {
+//       animateMenuClose();
+//     }
+//   }, [isOpen]);
+// };
