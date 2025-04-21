@@ -1,6 +1,6 @@
 import React from "react";
 import "./Preloader.css";
-import loadingGif from "./loader.gif"; // Replace with your GIF file path
+import loadingGif from "./loader.gif";
 
 const Preloader = () => {
   return (

@@ -24,9 +24,6 @@ const allAssets = [
   ...importAll(content3Assets),
 ];
 
-/**
- * Returns a promise that resolves when all images and videos are loaded.
- */
 export function preloadAssets() {
   return new Promise(async (resolve) => {
     try {
@@ -65,10 +62,10 @@ export function preloadAssets() {
       });
 
       await Promise.all(loadPromises);
-      resolve(); // All assets done
+      resolve();
     } catch (error) {
       console.error("Error preloading assets:", error);
-      resolve(); // Resolve anyway to prevent app hang
+      resolve();
     }
   });
 }

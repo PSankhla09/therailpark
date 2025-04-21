@@ -20,7 +20,7 @@ function App() {
     const startPreload = async () => {
       try {
         timeoutId = setTimeout(() => {
-          console.warn("⏳ 45-second timeout reached. Hiding preloader.");
+          console.warn("45-second timeout reached. Hiding preloader.");
           setTimeoutReached(true);
           setIsLoading(false);
         }, 45000);
@@ -58,14 +58,12 @@ function App() {
 
   return (
     <>
-      {/* Preloader always takes priority */}
       {isLoading && (
         <div className="preloader-overlay">
           <Preloader />
         </div>
       )}
 
-      {/* Main app always appears (preload will show above it in any case.) */}
       <div className={`App ${isLoading ? "hidden-during-load" : ""}`}>
         <Routes>
           <Route path="/" element={<Home user={user} />} />
@@ -74,7 +72,6 @@ function App() {
         <Footer />
       </div>
 
-      {/* Black fullscreen login overlay after preload */}
       {!isLoading && !user && <LoginScreen onSuccess={handleLoginSuccess} />}
     </>
   );
